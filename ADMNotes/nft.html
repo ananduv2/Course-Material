@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" type="text/css" href="mymenus.css">
+    <title>Non-Functional Requirements Testing</title>
+</head>
+<body>
+    <div id = "navbar">
+        <img id ="titleimage" src="logotkm.png">
+        <ul>
+            <li><a href ="home.html">Home</a></li>
+            <li><a href ="#">Additional Resources</a></li>
+            <li><a href ="#">Content Beyond Syllabus</a></li>
+            <li><a href ="pp1.html">Questions</a></li>
+        </ul>
+    </div>
+    <div id="mySidenav">
+        <h2 id = "bartopic">Topics</h2>
+            <a href = "testing.html">0. Review: Automated Acceptance Testing</a>
+            <a onclick = "openSec('sec1')">1. Non-Functional Requirements Testing</a>
+            <a onclick = "openSec('sec2')">2. Programming for Capacity</a>
+            <a onclick = "openSec('sec3')">3. Measuring Capacity</a>
+            <a onclick = "openSec('sec4')">4. Capacity Testing Environment</a>
+            <a onclick = "openSec('sec5')">5. Automated Capacity Testin</a>
+            <a onclick = "openSec('sec6')">6. Other Benefits of Capacity Testing</a>    
+    </div>
+    <div class = "gridcontainer1">
+        <div></div>
+        <div class = midel>
+            <br><br><br>
+            <div class = "material"  id ="sec1" >
+                <h2>Non-Functional Requirements Testing</h2>
+                <ul class="list">
+                    <li>
+                        Any test that focuses on aspects other than the behavior of the software is called Non-functional Requirement Testing.
+                    </li>
+                    
+                    <li>
+                        The three main aspects that are tested here are - <b>performance, througput and capacity</b>
+                    </li>
+                    <li>
+                        Performance - Measure of 
+the time taken to process a single transaction, and can be measured either in 
+isolation or under load.
+                    </li>
+                    <li>Throughput is the number of transactions a system can 
+                    process in a given timespan.</li>
+                    <li>Capacity - The maximum throughput a system can sustain, for a given workload, while 
+                    maintaining an acceptable response time for each individual request</li> 
+                    <li>Other commonly used NFR Tests include - availability, security and maintainability.</li>
+
+                    <li> Crosscutting nature of 
+                        many NFRs makes them hard to handle both in terms of analysis and in terms 
+                        of implementation. - That is to meet an NFR, more than one aspect of a software may need to be optimized, making them hard to test.</li>
+                    
+                    <li>Hence Trade offs are inevitable; eg. Very secure systems often compromise on ease of use; very flexible systems often 
+                        compromise on performance, and so forth</li>
+                        <li> During requirement analysis - NFRs can either be added to the Acceptance Criteria or may be treated differently from Acceptance Criteria. <br>Most often a mix of these approaches is chosen - that is, some NFRs are made part of the Acceptance Criteria while other are not.
+                    
+            </div>
+            <div class = "material"  id ="sec2" style = "display : none">
+                <h2>Programming for Capacity</h2>
+                <ul class="list">
+                    <li>
+                        The point of the capacity testing stage is to tell us 
+whether we have a problem, so that we can go on to fix it<br>
+                    </li>
+                    <li>
+                        Code written for high-capacity systems is, by necessity, simpler than 
+that written for everyday systems. <br>Complexity adds delays, but most programmers 
+find this difficult to understand, let alone act upon.
+                    </li>
+                    
+                    <li>
+                        In the design of any system, bottlenecks will exist.<br> But some strategies to be adopted to create software with high capacity are given below:
+                    </li>
+                        <ul>
+                            <li>
+                                Decide upon an architecture for your application. Pay particular attention to process and network boundaries and I/O in general.
+                            </li>
+                            <li>
+                                Understand and use patterns and avoid antipatterns that affect the stability and capacity of your system. Michael Nygard’s excellent volume Release It! describes these in detail.
+                            </li>
+                            <li>
+                                Keep the team working within the boundaries of the chosen architecture but, other than applying patterns where appropriate, ignore the lure to optimize for capacity. Encourage clarity and simplicity in code over esoterica. Never compromise readability for capacity without an explicit test that demonstrates the value.
+                            </li>
+                            <li>
+                                Pay attention to the data structures and algorithms chosen, making sure that their properties are suitable for your application. For example, don’t use an O(n) algorithm if you need O(1) performance.
+                            </li>
+                            <li>
+                                Be extremely careful about threading. Dave’s current project is the highest performance system he has worked on—his trading system can process tens of thousands of transactions per second—and one of the key ways to achieve this was by keeping the core of the application single-threaded. As Nygard says, “The blocked threads antipattern is the proximate cause of most failures leading to chain reactions and cascading failures.
+                            </li>
+                            <li>
+                                Establish automated tests that assert the desired level of capacity. When these tests fail, use them as a guide to fixing the problems.
+                            </li>
+                            <li>
+                                Use profiling tools as a focused attempt to fix problems identified by tests, not as a general “make it as fast as possible” strategy.
+                            </li>
+                            <li>
+                                Wherever you can, use real-world capacity measures. Your production system is your only real source of measurement. Use it and understand what it is telling you. ay particular attention to the number of users of the system, their patterns of behavior, and the size of the production data set
+                            </li>
+
+                        </ul>
+                   
+                </ul>
+            </div>
+            
+            <div class = "material"  id ="sec3" style = "display : none">
+                <h2></h> Measuring Capacity</h2>
+                <ul>
+                    The follow parameters of a software may be tested to measure the capacity of the software.
+                    <li>
+
+                        <b>Scalability testing</b> Checks for variation in response time of requests and 
+the number of possible simultaneous users more servers, 
+services, or threads are added.
+                    </li>
+                    <li>
+                        <b>Longevity testing</b> Testing how the performance of the system degrades over a long period of time. It can be helpful in finding issues such as memory leaks(software does not deallocate unused memory).
+
+                    </li>
+                    <li>
+                        <b>Throughput testing</b> The number units of work does the system complete in a second(given time)
+                    </li>
+                    <li>
+                        <b>Load Testing</b>Checks to see what happens when load on the system is increased(sometime even beyond practically possible values). This is very commonly performed
+
+                    </li>
+                    <li>
+                        Approaches to Capacity Testing:- 
+                        <ul style="list-style: none;">
+                            <li>
+                                1. Simulate Realworld use cases:-  If performance 
+                                or throughput is an important issue for an application, then we need some tests 
+                                that assert the system’s ability to meet its business needs.
+                            </li>
+                            <li>
+                                2. Benchmark specific technical interactions in the system:- Benchmark-style capacity tests are extremely useful for guarding 
+                                against specific problems in the code and optimizing code in a specific area.
+                            </li>
+                           
+                        </ul>
+
+                    </li>
+                    <li>
+                        Success and Failure in Capacity Testing:- 
+                        <ul >
+                            <li>
+                                Aim for stable, reproducible results.<br>
+                             
+ 
+                            </li>
+                            <li>
+                                Isolate capacity test environments from other in-
+                                fluences and dedicate them to the task of measuring capacity.
+                            </li>
+                            <li>
+                                Virtualisation must be avoided.
+                            </li>
+                            <li>
+                                Virtualisation must be avoided.
+                                </li>
+                            <li>Tune the pass threshold for each test by increasing
+                                it up once the test is passing at a minimum acceptable level.
+                            </li>
+
+                        </ul>
+
+                    </li>
+                </ul>
+            </div>
+            <div class = "material"  id ="sec4" style = "display : none">
+                <h2> Capacity Testing Environment</h2>
+                <ul>
+                    <li>Try to replicates the production 
+                        environment
+                        
+                        <ul>
+                            <li>
+                                If capacity or performance is a serious issue for your application, make the 
+                                investment and create a clone of your production environment for the core partsof your system.
+                            </li>
+                        
+                        </ul>
+                    </li>
+                    <li>An exact replica of the production environment isn’t always possible.
+                        <ul>
+                            <li>
+                                For 
+                                example when the project is small enough, or when the performance of the application is of insufficient concern to warrant the expense of duplicating production 
+                                hardware
+                            </li>
+                            <li>
+                                A replica of production is equally inappropriate for projects at the other extreme.
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        In most cases, we often go for something in between the above mentioned two approaches, some parts may be exactly replicated as production environment, while others are not.
+                        
+                        
+                    </li>
+                    
+                </ul>
+            </div>
+            <div class = "material"  id ="sec5" style = "display : none">
+                <h2>Automated Capacity Testing</h2>
+                Capacity Testing must have the following qualities :- 
+                <ul>
+                    <li>Test specific real-world scenarios, so we don’t miss important bugs in real-world use through overly abstract testing.
+                    </li>
+                    <li>Have a predefined threshold for success, so we can tell that they have passed.
+                    </li>
+                    <li>Be of short duration, so that capacity testing can take place in a reasonable length of time.
+                    </li>
+                    <li>Be robust in the face of change, to avoid constant rework to keep up with changes to the application.
+                    </li>
+                    <li>Be composable into larger-scale complex scenarios, so that we can simulate real-world patterns of use.
+                    </li>
+                    <li>Be repeatable, capable of running sequentially and in parallel, so that we can both build suites of tests to apply load and run longevity tests.
+                    </li>
+
+                </ul>
+                Hence an easy approach to automating Capacity testing is to take an existing Acceptance Test Suite and making the necessary modifications to it so that the above qualities are met.
+                Capacity testing can take any of the following three approaches: 
+                <div class= "imagecenter">
+                    <img src = "Images/CTE.png" alt ="bloom"></div>
+                    <ul>
+                    <li>Through UI - Not always a good choice, especially in large projects.
+                    </li>
+                    <li>Through a service or public API - eg making HTTP requests directly 
+                        into a web server -  Can be used in applications that provide a public API other than a 
+                        graphical user interface, such as a web service, message queues, or some other 
+                        event-driven communication mechanism
+                    </li>
+                    <li>Through a lower-level API - making direct calls to a service 
+                        layer or perhaps the database -  Perform a special run of the acceptance tests, or a subset of 
+                        them representing capacity test scenarios.
+                        <div class= "imagecenter">
+                            <img src = "Images/API.png" alt ="bloom2"></div>
+                    </li>
+                    <li>Using Capacity Test Stubs to Develop Tests - The complexity of writing 
+                        the capacity test can often outweigh the complexity of writing code that is fast 
+                        enough to pass it.
+                    </li>
+
+                </ul>
+            </div>
+            <div class = "material"  id ="sec6" style = "display : none">
+                <h2>Other Benefits of Capacity Testing</h2>
+                <ul>
+                    <li>Reproducing complex production defects.
+                    </li>
+                    <li>Detecting and debugging memory leaks
+                    </li>
+                    <li>Longevity testing
+                    </li>
+                    <li>Evaluating the impact of garbage collection
+                    </li>
+                    <li>Tuning garbage collection
+                    </li>
+                    <li>Tuning application configuration parameters
+                    </li>
+                    <li>Tuning third-party application configuration, such as operating system, 
+                        application server, and database configuration
+
+                    </li>
+                    <li>Simulating pathological, worst-day scenarios
+                    </li>
+                    <li>Evaluating different solutions to complex problems
+
+                    </li>
+                    <li>Measuring the scalability of the application over a series of runs with 
+                        different hardware configurations
+                    </li>
+                    <li>Load-testing communications with external systems, even though our 
+                        capacity tests were originally intended to run against stubbed interfaces
+                    </li>
+                    <li>Rehearsing rollback from complex deployments.
+                    </li>
+                    <li>Selectively failing parts or the application to evaluate graceful degradation 
+                        of service
+                    </li>
+                    <li>Performing real-world capacity benchmarks in temporarily available production hardware so that we could calculate more accurate scaling factors 
+                        for a longer-term, lower-specification capacity test environment.
+                    </li>
+
+                </ul>
+            </div>
+
+        </div>
+    </div>
+    <script>
+   /* function openNav() {
+        console.log("open nav")
+        document.getElementById("mySidenav").style.width = "300px";
+        document.getElementById("tb").style.transform = "translateX(250px)";
+        document.getElementById("text").style.transform = "translateX(250px)";
+        for(i=1;i<6;i++){  
+            sect = 'sec'.concat(i);
+            console.log(sect);
+            document.getElementById(sect).style.transform = "translateX(250px)";
+        }
+    }
+    function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+        document.getElementById("tb").style.transform = "translateX(0px)";
+        document.getElementById("text").style.transform = "translateX(0px)";
+        for(i=1;i<6;i++){  
+            sect = 'sec'.concat(i);
+            console.log(sect);
+            document.getElementById(sect).style.transform = "translateX(0px)";
+        }
+    }*/
+    function openSec(st) {
+        for(i=1;i<7;i++){  
+            sect = 'sec'.concat(i);
+            console.log(sect);
+            document.getElementById(sect).style.display = "none";
+        }
+        console.log(st);
+        document.getElementById(st).style.display = "block";    
+    }
+    </script>
+    </body>
+    </html>

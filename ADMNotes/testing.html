@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" type="text/css" href="mymenus.css">
+    <title>Testing</title>
+</head>
+<body>
+    <div id = "navbar">
+        <img id ="titleimage" src="logotkm.png">
+        <ul>
+            <li><a href ="home.html">Home</a></li>
+            <li><a href ="#">Additional Resources</a></li>
+            <li><a href ="#">Content Beyond Syllabus</a></li>
+            <li><a href ="pp1.html">Questions</a></li>
+        </ul>
+    </div>
+    <div id="mySidenav">
+        <h2 id = "bartopic">Topics</h2>
+            <a onclick = "openSec('sec1')">0. Review: Commit Stage</a>
+            <a onclick = "openSec('sec0')">1. Automate Acceptance Testing</a>
+            <a onclick = "openSec('sec2')">2. Acceptance Testing - What and Why</a>
+            <a onclick = "openSec('sec3')">3. Creating an Acceptance Test Suite</a>
+            <a onclick = "openSec('sec4')">4. Implementing Acceptance Tests</a>
+            <a onclick = "openSec('sec5')">5. Test Performance</a>
+            
+    </div>
+    <div class = "gridcontainer1">
+        <div></div>
+        <div class = midel>
+            <div id= "text" class ="material">
+                <br>
+                <br>
+                
+                <br>
+                <div id="sec0">
+                    <div class = "quotebox">
+                        <h1 style ="text-align: center">Automate Acceptance Testing</h1>
+                        <p id= "text" class ="material"><span style ="font-size: 40px;">“</span>Formal testing with respect to user needs, requirements, and business processes conducted to determine whether or not a system satisfies the acceptance criteria and to enable the user, customers or other authorized entity to determine whether or not to accept the system."</p>
+                        &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; —International Software Testing Qualifications Board
+                        <br>   
+                    </div>
+                    <br><ul class ="list">
+                        **Please read the Section 0: Review of Commit Stage to revise commit stage.
+                    <li>Acceptance Test is a business facing test and hence involves input from client before preparing test suite.</li>
+                    <li>The position of AT in the order of testing is shown below.</li>
+                    <div class = "material imagecenter" id ="sec0"> 
+                        <img src="Images/Acpt.jpg" alt ="nothing">
+                    </div> 
+                    <li>Usually, Black Box Testing method is used in Acceptance Testing. </li>
+                    <li><b>Internal Acceptance Testing</b> (Alpha Testing) performed by members of company that  
+                        that developed the software; but who were not directly involved in the project (Development or Testing). </li>
+                    <li><b>Customer Acceptance Testing</b> - performed by the clients of the company that develpoed the software. </li>
+                    <li><b>User Acceptance Testing</b> (Beta Testing)- performed 
+                        by the end users of the software - this could be the customers themselves or someone who buys the product from your clients. </li>
+                    </ul>
+                    <br>
+                </div>
+            </div>
+            <div class = "material" id ="sec1" style = "display : none">
+                <h4>Review of Commit Stage</h4>
+                <ul>
+                    <li>
+                        Commit Stage - starts when you make a change to your current version.<br>
+                    </li>
+                    <li>
+                        The entry point into the deployment Pipeline<br>
+                    </li>
+                    
+                    <li>
+                        
+                        <b> In the commit stage</b> 
+                        <i><br>-> A developer commits changes into the trunk <br>
+                        -> CI detects the commit<br>
+                        -> CI Compiles the changes<br>
+                        -> Performs Automated Unit Testing<br>
+                        -> Invokes the build script to build the binaries<br>
+                        -> Stores the binaries/test-reports/metadata in the Artefact Repository.<br></i>
+                        <br>
+                        
+                    </li>
+                    <li>
+                        <b>Some Commit Test Suite Principles</b> <br><i>
+                        -> Avoid UI - Makes automated commit testing harder and slower<br>
+                        -> Use Dependency Injection - Helps generalise testing process<br>
+                        -> Avoid DB - DB access could slow down the tests significantly; Also makes testing stateful<br>
+                        -> Avoid Asynchrony in Unit Tests - Don't test for  Asynchrony between modules - use test doubles instead<br>
+                        -> Using Test Doubles -  All modules may not be ready yet, so rely on doubles<br>
+                        -> Minimizing State in Tests - May end up testing too much, focus on the unit<br>
+                        -> Fake Time if needed<br>
+                        -> Brute Force Testing<br></i>
+                    </li>
+                </ul>
+            </div>
+            <div class = "material"  id ="sec2" style = "display : none">
+                <h4>Acceptance Testing</h4>
+                <ul>
+                    <li>
+                        Build must pass acceptance testing to be released<br>
+                    </li>
+                    <li>
+                        Testing Functional Aspects of the software - Acceptance Criteria<br>
+                        <img src ="Images/AccTest.png" alt= "something" width = 250px height =auto><br>
+                    </li>
+                    
+                    <li>
+                        <b> In the Acceptance Testing stage</b> 
+                        <i><br>-> Tester/Automated Test Script gets binaries from Artefact Repository <br>
+                        -> Configurations(dependencies/environment variables) are fetched from the Version Control System<br>
+                        -> Environment is configured to reflect the production environment<br>
+                        -> Binaries are deployed<br>
+                        -> Smoke Tests on the binaries to see if it is working(Automated)<br>
+                        -> Tests for acceptance Criteria are performed(Automated using scripts)<br></i>
+                        <br>
+                    </li>
+
+                    <li>
+                        <b> Why is AutomatedAcceptance Testing essential</b> 
+                        <i><br>-> Cost of testing is far less as automated test scripts once written can be reused.  <br>
+                        -> Rigourous testing can be done which would otherwise be boring to the tester<br>
+                        -> Can perform event trigger tests quicker and more accurately<br>
+                        -> Good to test environment related bugs<br></i>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class = "material"  id ="sec3" style = "display : none">
+                <h4> Creating an Acceptance Test Suite</h4>
+                <ul>
+                    <li><h4>Layers in Acceptance Testing</h5>
+                        <img src ="Images/acclay.png" alt= "something" width = 300px height =auto><br>
+                        -> The first layer - <b>Acceptance Criteria Specification</b> <br>&emsp;- <i> Can be described in the GIVEN___ WHEN ____ THEN form <br>&emsp;- Follow the INVEST Principle when defining<br> &emsp;- Specialized tool may be used to specify them, which can help when creating test scripts<br></i><br>
+                        -> The second layer -  <b>Test Implementation Layer</b> <br>&emsp;-<i>Code using Domain Specific Languages <br>&emsp;- Do not test the UI(would be time consuming and hard at this stage, UI testing will be performed later as part of Usability testing and other tests)<br></i><br>
+                        -> The third layer - <b> Application Driver Layer</b> <br>&emsp;- <i>The layer that interacts with the system that is being tested <br>&emsp;- Test script interacts with the software being tested through this layer <br>&emsp;- It performs actions on the systems and returnt he results of the operation back to the test suite for reporting.<br></i><br>
+                    </li>
+                    <li>
+                        <b>Role of Analyst and Tester</b><br>
+                        -> <i><b>Analyst</b></i> - Someone in your company who can represent the user or client<br>
+                            &emsp;Cleerly understands the requirements of the customers and gets it across to the team<br>
+                        -> <i><b>Tester</b></i> - Ensures product quality<br><br>
+                    </li>
+                    <li>
+                        <b>Iterative Projects</b><br>
+                        -> Analysts define acceptance Criteria along with clients and tests.<br>
+                        
+                        -> Testers, Analysts and if possible clients sit with developers to clearly tell them requirements of the projects before develpoment starts.
+                        <br>&emsp; In these meetings developers and testers can communicate the practicality the requirements to the clients.
+                        
+                        <br>-> Once development and testing are complete, developers and testers can showcase the product to the customers and analysts to see if the project is satisfactory
+
+                        <br>-> This process repeats till a satisfactory product is developed.<br><br>
+                    </li>
+                    
+                    <li>
+                        <b>Acceptance Criteria as Executable Specifications</b><br>
+                        -> <b><i>Behaviour Driven Development</i> </b>- acceptance criteria should be written in the form of the customer’s expectations of the behavior of the application.<br>
+                        
+                        <br>-> Domain Specific languages can be used to specify Acceptance Criteria based on the GIVEN ____ WHEN _____ THEN model
+                        <br>-> Tool such Cucumbe, JBehave etc support such form of Acceptance Criteria Specification.
+                    </li>
+                    <li>
+                        <b>Window Driver Pattern</b><br>
+                        ->  Window Driver - The Part of your application driver layer that interacts with the GUI is known 
+                        as the window driver<br>
+                        ->  Window driver pattern is designed to make tests that use the GUI more robust by providing a layer of abstraction. <br> 
+                        This coupling between the acceptance tests and the GUI of the system under test is there by reduced.<br>
+                    
+                </ul>
+            </div>
+            <div class = "material"  id ="sec4" style = "display : none">
+                <h4> Implementing Acceptance Test</h4>
+                <ul>
+                    <li><h4>State in Acceptance Tests</h4>
+                        -> The state of a software is very important in Acceptance Testing(it defines the "given" part of given-when-then model).<br>
+                        -> However, while testing, the dependence on state must be reduced.<br>
+                        -> Some steps to avoid state can be : <br>
+                        <ul>
+                            <li>
+                                Avoid using production data to populate your test database for your acceptance tests 
+                                <br>- Instead use minimal and coherent dataset for the test<br>- Ensure you have a good starting point before test starts
+                            </li>
+                            <li>
+                                Perform atomic testing <br>- test one functionality(one criterion) at a time - 
+                                <br> This can be hard - one approach to overcome this is use feature of the software to isolate scope of each test.
+                            </li>
+                        </ul>
+                    </li>
+                    <li><h4>Using Test Doubles</h4>
+                        -> All modules may not be available at the time of testing - use doubles instead <br>
+                        -> Third part dependencies may not be available at the time of testing -  use test doubles instead<br>
+                        -> To pin point exact cause of problem, it may be better to use doubles rather than actual modules. - error may have been caused by the external module and not the module under test - you will have far more control over test doubles than the external system.
+                        <img src ="Images/td.png" alt= "something" width = 500px height =auto><br>
+                        <ul>
+                            <li>
+                                The image shows a possible position where test doubles can be used - figure the left shows situation in production and figure on the right shows how Test doubles can be used instead of external system for testing.
+                            </li>
+                            <li>
+                                Test doubles can be positioned such that the local interface(API that helps your software communicate with an external system) now talks to the test double instead of the external system.
+                                <br> This can be hard - one approach to overcome this is use feature of the software to isolate scope of each test.
+                            </li>
+                        </ul>
+                    </li>
+                    
+                </ul>
+            </div>
+            <div class = "material"  id ="sec5" style = "display : none">
+                <h4>Test Performance</h4>
+                <ul>
+                    <li>Acceptance Tests usually take a lot of time to complete - as they are crucial, extensive testing is done.
+                        -> To improve performance do the following
+                        <ul>
+                            <li>
+                                Refactor common tasks
+                            </li>
+                            <li>
+                                Share Expensive Resources
+                            </li>
+                            <li>
+                                Parallel Testing
+                            <li>
+                                Use Compute Grids
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+    <script>
+   /* function openNav() {
+        console.log("open nav")
+        document.getElementById("mySidenav").style.width = "300px";
+        document.getElementById("tb").style.transform = "translateX(250px)";
+        document.getElementById("text").style.transform = "translateX(250px)";
+        for(i=1;i<6;i++){  
+            sect = 'sec'.concat(i);
+            console.log(sect);
+            document.getElementById(sect).style.transform = "translateX(250px)";
+        }
+    }
+    function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+        document.getElementById("tb").style.transform = "translateX(0px)";
+        document.getElementById("text").style.transform = "translateX(0px)";
+        for(i=1;i<6;i++){  
+            sect = 'sec'.concat(i);
+            console.log(sect);
+            document.getElementById(sect).style.transform = "translateX(0px)";
+        }
+    }*/
+    function openSec(st) {
+        for(i=0;i<6;i++){  
+            sect = 'sec'.concat(i);
+            console.log(sect);
+            document.getElementById(sect).style.display = "none";
+        }
+        console.log(st);
+        document.getElementById(st).style.display = "block";    
+    }
+    </script>
+    </body>
+    </html>
